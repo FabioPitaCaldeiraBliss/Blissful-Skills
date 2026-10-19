@@ -1,18 +1,35 @@
 {
   "name": "blissful-skills",
-  "version": "0.3.0",
-  "description": "Blissful design skills: UX audits against usability heuristics, Laws of UX and WCAG accessibility.",
+  "version": "0.4.0",
+  "description": "Blissful design skills: UX audits (usability heuristics, Laws of UX, WCAG) and a motion pipeline from script to rendered video (storyboard, frames, animation, assembly).",
   "author": {
     "name": "Fabio Pita Caldeira",
     "url": "https://github.com/FabioPitaCaldeiraBliss"
   },
   "repository": "https://github.com/FabioPitaCaldeiraBliss/Blissful-Skills",
   "license": "MIT",
-  "keywords": ["ux", "audit", "heuristics", "ux-laws", "wcag", "accessibility", "design"],
+  "keywords": [
+    "ux",
+    "audit",
+    "heuristics",
+    "ux-laws",
+    "wcag",
+    "accessibility",
+    "design",
+    "motion",
+    "storyboard",
+    "video",
+    "hyperframes",
+    "figma"
+  ],
   "skills": [
     "./skills/audit",
     "./skills/audit-heuristics",
     "./skills/audit-laws",
-    "./skills/audit-wcag"
+    "./skills/audit-wcag",
+    "./skills/motion-storyboard",
+    "./skills/motion-frames",
+    "./skills/motion-animate",
+    "./skills/motion-assemble"
   ]
 }

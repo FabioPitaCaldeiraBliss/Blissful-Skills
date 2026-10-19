@@ -9,9 +9,17 @@
     {
       "name": "blissful-skills",
       "source": "./",
-      "description": "UX audit skills: usability heuristics, Laws of UX, WCAG accessibility, and a full-audit orchestrator.",
+      "description": "UX audit skills (usability heuristics, Laws of UX, WCAG, full audit) and a motion pipeline from script to rendered video (storyboard, frames, animation, assembly).",
       "category": "design",
-      "keywords": ["ux", "audit", "wcag", "heuristics"]
+      "keywords": [
+        "ux",
+        "audit",
+        "wcag",
+        "heuristics",
+        "motion",
+        "storyboard",
+        "video"
+      ]
     }
   ]
 }
