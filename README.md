@@ -4,12 +4,13 @@ Design skills for Claude Code.
 
 | Skill | What it does |
 |---|---|
-| `/ux-audit` | Full audit: runs the three audits below and merges them into one report (overlaps, findings by severity, top 5 actions). |
-| `/ux-heuristic-audit` | Evaluates a screen or flow against Nielsen's 10 usability heuristics. |
-| `/ux-laws-audit` | Evaluates against 14 Laws of UX (Hick, Fitts, Miller, Jakob, Gestalt, etc.). |
-| `/wcag-accessibility-audit` | Evaluates against the WCAG POUR principles. |
+| [`/blissful-audit`](skills/blissful-audit/SKILL.md) | Full audit: runs the three audits below and merges them into one report (overlaps, findings by severity, top 5 actions). |
+| [`/blissful-audit-heuristics`](skills/blissful-audit-heuristics/SKILL.md) | Evaluates a screen or flow against Nielsen's 10 usability heuristics. |
+| [`/blissful-audit-laws`](skills/blissful-audit-laws/SKILL.md) | Evaluates against 14 Laws of UX (Hick, Fitts, Miller, Jakob, Gestalt, etc.). |
+| [`/blissful-audit-wcag`](skills/blissful-audit-wcag/SKILL.md) | Evaluates against the WCAG POUR principles. |
 
-Pass a screenshot, Figma link, URL, saved HTML file or code: `/ux-audit <target>`.
+Pass a screenshot, Figma link, URL, saved HTML file or code: `/blissful-audit <target>`.
+When installed as a plugin the namespaced form also works: `/blissful-skills:blissful-audit <target>`.
 Static inputs can't verify keyboard, screen-reader, zoom or motion checks; those are reported as unverified.
 
 ## Install
@@ -40,7 +41,7 @@ Use one route per agent; using both duplicates the skills.
 skills/<skill>/   SKILL.md (procedure) + references/ (checklist, loaded on demand)
 ```
 
-Each `SKILL.md` holds only the steps; the checklist lives once in `references/`. `/ux-audit` may call the other three but they never call it.
+Each `SKILL.md` holds only the steps; the checklist lives once in `references/`. `/blissful-audit` may call the other three but they never call it.
 
 ## Contributing
 
