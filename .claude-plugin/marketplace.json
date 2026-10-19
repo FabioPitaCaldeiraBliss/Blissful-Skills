@@ -1,0 +1,17 @@
+{
+  "name": "blissful",
+  "owner": {
+    "name": "Fabio Pita Caldeira",
+    "url": "https://github.com/FabioPitaCaldeiraBliss"
+  },
+  "description": "Blissful design skills as an installable Claude Code plugin.",
+  "plugins": [
+    {
+      "name": "blissful-skills",
+      "source": "./",
+      "description": "UX audit skills: usability heuristics, Laws of UX, WCAG accessibility, and a full-audit orchestrator.",
+      "category": "design",
+      "keywords": ["ux", "audit", "wcag", "heuristics"]
+    }
+  ]
+}
