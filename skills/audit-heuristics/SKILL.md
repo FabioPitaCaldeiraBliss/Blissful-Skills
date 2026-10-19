@@ -1,5 +1,5 @@
 ---
-name: blissful-audit-heuristics
+name: audit-heuristics
 description: Audit a screen, component or flow against Nielsen's 10 usability heuristics. Use when asked to run a heuristic evaluation or usability review of a design, Figma file, URL or code.
 argument-hint: "[screenshot, Figma link, URL or file]"
 ---

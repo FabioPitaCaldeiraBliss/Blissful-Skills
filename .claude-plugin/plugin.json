@@ -1,6 +1,6 @@
 {
   "name": "blissful-skills",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Blissful design skills: UX audits against usability heuristics, Laws of UX and WCAG accessibility.",
   "author": {
     "name": "Fabio Pita Caldeira",
@@ -10,9 +10,9 @@
   "license": "MIT",
   "keywords": ["ux", "audit", "heuristics", "ux-laws", "wcag", "accessibility", "design"],
   "skills": [
-    "./skills/blissful-audit",
-    "./skills/blissful-audit-heuristics",
-    "./skills/blissful-audit-laws",
-    "./skills/blissful-audit-wcag"
+    "./skills/audit",
+    "./skills/audit-heuristics",
+    "./skills/audit-laws",
+    "./skills/audit-wcag"
   ]
 }

@@ -1,5 +1,5 @@
 ---
-name: blissful-audit-wcag
+name: audit-wcag
 description: Audit a screen, component or flow for accessibility against the WCAG POUR principles (Perceivable, Operable, Understandable, Robust). Use when asked for an a11y or WCAG review.
 argument-hint: "[screenshot, Figma link, URL or file]"
 ---

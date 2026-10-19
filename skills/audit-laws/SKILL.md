@@ -1,5 +1,5 @@
 ---
-name: blissful-audit-laws
+name: audit-laws
 description: Audit a screen, component or flow against the Laws of UX (Hick, Fitts, Miller, Jakob, Gestalt laws, Von Restorff, Peak-End, etc.). Use when asked to check a design for UX laws or cognitive-load issues.
 argument-hint: "[screenshot, Figma link, URL or file]"
 ---
