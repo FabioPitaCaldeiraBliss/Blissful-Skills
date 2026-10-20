@@ -10,6 +10,24 @@ What the designer brings to start work: a script, a plan, Figma screens, images,
 **Storyboard**
 An ordered sequence of panels that describes a piece of motion or video from start to end. It belongs to one piece of work, for example one animated onboarding or one promo video.
 
+**Motion language**
+The written description of how a piece moves: pacing and beat lengths, how text behaves, signature moves, easing feel, transitions. Taken from references (the reference library, or references the designer gives for one piece) and fed into the motion spec.
+
+**Reference library**
+The common, curated collection of public motion references every piece can draw on, each entry with its source and its motion language. It holds links and notes only, never client or Bliss work.
+
+**User reference**
+A reference a designer gives while using a skill, such as a video, a recording or stills. It is analysed into a motion language on top of the reference library, not instead of it, and kept locally with the designer's piece, never added to the shared library.
+
+**Motion vocabulary**
+The closed list of named moves the skills plan and build with (a phrase swap, a stroke draw, a device rise, a notification drop). A move that isn't on the list is marked custom, so it gets designed on purpose rather than invented in passing.
+
+**Move**
+One named motion from the motion vocabulary, applied to one element or group at one moment of a panel.
+
+**Motion density**
+How much of a piece is moving: the share of time something is in motion, how often a new move starts, and how long the longest still hold lasts. Set as a target in the motion spec and checked on the render.
+
 **Panel**
 One step of a storyboard: a visual (a screen, an image or a placeholder) plus notes on what happens in it. The unit the designer reads, reorders and approves. Designers often say "scene"; it means the same thing, and "panel" is the canonical word in the skills.
 
@@ -40,8 +58,11 @@ The proposal shown before any motion is built: per panel, each layer's motion wi
 **Timeline frame**
 A copy of a panel's frame that carries its animation, with a duration taken from the storyboard. Where a panel has several states, the timeline frame holds all their layers so states can cross-fade or swap inside one timeline. The static frames stay untouched as the final artwork.
 
+**Handoff state**
+The composition a `hyperframes` scene starts or ends on, matched to the neighbouring panel's last or first state, so scene videos join without a seam when the whole piece renders and still stand alone when rendered by themselves. Each such scene carries its own in and out.
+
 **Transition frame**
-A frame that holds only a transition between two panels, animated on its own, exported separately and joined to the panels afterwards. Panel timelines carry no in or out of their own.
+A frame that holds only a transition between two panels, animated on its own, exported separately and joined to the panels afterwards. Used only next to clips from the `figma motion` or `after effects` routes, and for wipes and cuts; `hyperframes` scenes join through handoff states instead.
 
 **Key frame**
 A still of one moment inside a panel, with a timecode, a one-sentence description and tags for what the moment needs (ease, camera, transition, sound, text). A panel has three to five. Layout or content changes between key frames are the states that `motion-frames` plans from.
@@ -77,7 +98,13 @@ What a human animator receives for a panel on the `after effects` route: the lay
 A labelled placeholder of the right length that the assembly shows while a panel's clip has not arrived yet, so the cut still renders. It is replaced when a file with the expected name appears, and every stand-in is listed as missing.
 
 **Edit home**
-The one place where a panel's editable source lives: its Figma timeline frame, its HyperFrames composition file, or the After Effects project the human names. Recorded per panel in the storyboard and kept up to date.
+The one place where a panel's editable source lives: its Figma timeline frame, its HyperFrames composition file, or the After Effects project the human names. Recorded per panel in the storyboard and kept up to date. Once a designer edits a composition by hand, that file is the edit home and is never regenerated over without asking.
+
+**Render scope**
+What one run of the animation and assembly steps produces: the whole piece, or one or more panels the designer picks. The storyboard and frames always cover the whole piece; the render scope is chosen per run.
+
+**Scene video**
+One panel rendered as a complete video of its own, usable without the rest of the piece. The unit a render scope is made of.
 
 **Assembly**
-The single HyperFrames project where the finished piece is put together and rendered. Panels on the `hyperframes` route are native scenes in it; panels on the other routes arrive as video clips mounted in it; transitions sit between them.
+The single HyperFrames project where panels are put together and rendered. Panels on the `hyperframes` route are native scenes in it; panels on the other routes arrive as video clips mounted in it; transitions sit between them. It renders whatever the render scope covers, from one scene video to the whole piece.
