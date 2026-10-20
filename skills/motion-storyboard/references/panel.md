@@ -6,6 +6,8 @@ A **panel** is one idea of the piece (designers also say "scene"). It carries a 
 
 A key frame is a still of one moment inside the panel. Three to five per panel; two for a panel of 4 s or less. The first sits at the panel's start; the last holds until its end, so state what the hold does (see `motion-spec.md`).
 
+Size the panel's motion from the density target: about one move per 2.5 s of panel time, and no gap between key frames longer than the longest hold allowed. When a panel has fewer key frames than moves, a key frame names every move that starts before the next one.
+
 | Part | What goes in it |
 |---|---|
 | **Id and timecode** | `F1 · 0:26.0`: sequenced times, never two events at one timestamp (write "fades out fully by 0:30.2; at 0:30.2 the next line lands"). |
@@ -19,9 +21,10 @@ Key frames become the states `motion-frames` plans from, so a change of layout o
 
 | Tag | Content |
 |---|---|
-| `EASE` | curve and duration, e.g. `expo out · 400 ms` |
+| `MOVE` | the move from `motion-vocabulary.md` and what it acts on, e.g. `shape-morph · disc → logo tile`; `custom: <one line>` when none fits |
+| `EASE` | curve and duration, only when it differs from the move's default, e.g. `expo out · 400 ms` |
 | `CAM` | camera move or framing, e.g. `push-in 115%`, `whip pan` |
-| `TRANS` | the transition into or out of the moment, e.g. `✓ → padlock` |
+| `TRANS` | the transition into or out of the moment, named from the vocabulary's transitions, e.g. `morph-through · ✓ → padlock` |
 | `SFX` | sound at that moment, e.g. `click + ding` |
 | `TXT` | exact on-screen copy, in quotes |
 
@@ -32,6 +35,7 @@ Annotation glyphs on the picture: a tap marker, a dashed trajectory arrow, an ou
 | Note | What goes in it |
 |---|---|
 | **Duration** | Start and end, e.g. `0:26–0:40`. |
+| **Role and shot** | The panel's role (hook, problem, product intro, key feature, benefits, social proof, CTA, brand outro) and the shot template it starts from (`motion-frames/references/treatments.md`), e.g. `key feature · device-surface-showcase`. |
 | **Route** | How the panel gets animated, with a one-line reason (below). |
 | **Edit home** | Where the editable source will live (below). |
 | **Status** | `outline`, `built` (layout confirmed, no motion) or `animated`. Add `locked` once approved; locked panels are never redrawn. |
@@ -59,7 +63,11 @@ How one panel gets animated. Propose one per panel with a reason; the designer c
 | `figma motion` | A simple UI entrance or cross-fade the designer wants to keep editable in Figma's own timeline. | Cannot count a number up; each frame exports on its own. |
 | `after effects` | Character or logo animation, 3D, compositing, or anything an asset has to drive or effects the other routes lack. A human does it. | Needs a handoff and a delivered clip (or a Lottie file). |
 
-If a panel mixes needs, route it to the most capable fit and say why; do not split a panel across routes. For `hyperframes` panels, label each key frame element as **rebuild** (it moves or changes state) or **keep** (a logo, icon, illustration or screenshot used as proof), and name the elements that persist across key frames.
+If a panel mixes needs, route it to the most capable fit and say why; do not split a panel across routes.
+
+A `hyperframes` panel is a full scene video on its own: its first key frame is its **handoff state** from the previous panel (that panel's last state), and its last key frame is the handoff into the next. Write both as key frames, so the scene renders alone and still joins its neighbours without a seam. Use a transition frame only next to a `figma motion` or `after effects` panel, or for a `cut` or `wipe`.
+
+For `hyperframes` panels, label each key frame element as **rebuild** (it moves or changes state) or **keep** (a logo, icon, illustration or screenshot used as proof), and name the elements that persist across key frames.
 
 ## Edit home
 

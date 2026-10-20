@@ -2,9 +2,23 @@
 
 One HyperFrames project holds the whole piece. Follow HyperFrames' own contract (`/hyperframes-core`) for composition structure; this file adds only what is specific to assembling panels from several routes.
 
+## Render scope
+
+The designer picks what one run renders: the whole piece, one scene, or a run of panels. Each scene is a complete video (it carries its own in and out through its handoff states), so any scope renders on its own.
+
+Write the root `index.html` for the scope with the generator rather than by hand:
+
+```
+python3 -I <motion-animate>/scripts/build-scenes.py <project> --scope all        # whole piece
+python3 -I <motion-animate>/scripts/build-scenes.py <project> --scope 04         # one scene video
+python3 -I <motion-animate>/scripts/build-scenes.py <project> --scope 03-06      # a run of panels
+```
+
+It mounts the chosen panels back to back from 0 s, mounts a delivered clip or a stand-in for panels on other routes, mounts the wipe between panels whose `transition_in` is `wipe`, and offsets the music so a scene keeps its own part of the track. `hyperframes render` only renders `index.html` and what it references, so a single scene is rendered through a scope index, never from its composition file alone.
+
 ## Start times
 
-Panels play in storyboard order, each at the sum of the durations before it. Root `data-duration` is the total. Flag a total above the piece format's length limit.
+Within a scope, panels play in storyboard order, each at the sum of the durations before it. Root `data-duration` is the total. Flag a whole-piece total above the piece format's length limit.
 
 ## Mounting
 
@@ -42,14 +56,36 @@ A transition is its own sub-composition, mounted on a higher track, centred on t
 
 ## Audio
 
-None unless the designer supplies a track. If they do, follow `/hyperframes-core` for placement and `/hyperframes-audio` for mixing, and snap nothing to the beat unless a BPM was given.
+None unless the designer supplies a track; never generate or source music. If they do, add it to `scenes.json` (`audio`) so every scope index places it, and follow `/hyperframes-audio` for mixing. With a BPM, move starts were already snapped to the beat map (within ±2 frames) in the storyboard; check the hits land on cuts and key moves in the preview.
+
+- **Sound effects** stay as cues: write `exports/sfx-cues.csv` (`time,cue,panel`) from the storyboard's `SFX` tags, in piece time, for whoever does the sound.
+- **Captions** only when there is voice-over: write `exports/captions.srt` from the voice-over timing in the script or storyboard. On-screen text already covers the rest.
+
+## Export formats
+
+| File | Command | When |
+|---|---|---|
+| Review copy | `npx hyperframes render -f <fps> -q delivery -o renders/<name>.mp4` | Always |
+| Editor master | `npx hyperframes render -f <fps> --format mov -o renders/<name>.mov` (ProRes 4444) | When the scene goes to an editor |
+| Overlay with alpha | `--format mov` or `--format webm`, with `"background": "transparent"` on the piece and the panel in `scenes.json` | Lower thirds, logo stings, anything laid over other footage |
+| Frames for After Effects | `--format png-sequence -o renders/<name>/` | When an animator finishes it |
+
+A **scene video** for an editor gets 0.5 s handles: its first and last frames held, so it can be trimmed or dissolved. Add them after the render, never in the scene:
+
+```
+ffmpeg -i renders/04.mov -vf "tpad=start_mode=clone:start_duration=0.5:stop_mode=clone:stop_duration=0.5" \
+  -c:v prores_ks -profile:v 4444 -pix_fmt yuva444p10le renders/04-handles.mov
+```
+
+(For an MP4, use `-c:v libx264 -crf 16 -pix_fmt yuv420p`; with sound, add `-af "adelay=500:all=1,apad=pad_dur=0.5"`.) A whole-piece render gets no handles. Name scene videos `NN-<panel slug>.<ext>`.
 
 ## Render and verify
 
 - Render only after the designer approves the Studio preview.
 - Sample the first frame, each cut and the last frame with `ffmpeg`; read them.
 - Compare the file's size, fps and duration with the piece format.
-- Per-panel files on request: cut each from the final render by its start time and duration, re-encoded so the cuts are exact.
+- Measure the render's motion density with `<motion-audit>/scripts/measure-motion.py` and report it against the motion spec's target; offer `motion-audit` for the full check.
+- Per-panel files: render each scene through its own scope (above) rather than cutting the full render, so each carries its own in and out.
 
 ## Editing the root file
 

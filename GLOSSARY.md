@@ -37,6 +37,12 @@ The finished, static, animation-ready visual of a panel. Built from the storyboa
 **Design direction**
 The palette, type and treatments for a piece, taken from a design system or proposed from the source, and approved together with the frame plan. Recorded as the piece's `frame.md`.
 
+**Role**
+What a panel does in the story: hook, problem, product intro, key feature, benefits, social proof, call to action or brand outro. Recorded per panel in the storyboard.
+
+**Shot template**
+A proven, time-coded shape for a panel (a device showcase, a card grid assembling, a logo lockup), taken from HyperFrames' blueprints and chosen to fit the panel's role. The frame's treatment starts from it; its signature move is kept.
+
 **Treatment**
 A reusable frame type defined once for a piece (for example Hero Stat or Closing) that fixes a frame's layer roles, focal element and negative space without fixing its layout. Each panel is given one.
 

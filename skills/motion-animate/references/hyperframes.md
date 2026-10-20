@@ -44,11 +44,18 @@ Put the plan in the project's `STORYBOARD.md` (written by `motion-storyboard`, f
 
 ## Build from the frames
 
-The frames are the source of truth, so read them back instead of retyping them: use `use_figma` to dump every layer of every frame (name, type, x, y, width, height, fills, strokes, opacity, radius, effects, text content, size, weight, colour, alignment, tracking, line height, accent ranges) as compact JSON, and generate each `compositions/panel-NN.html` from it.
+The frames are the source of truth, so read them back instead of retyping them, and generate the scenes with the bundled scripts rather than writing composition HTML by hand.
 
-- A layer's id is its slugified name with the panel prefix (`p04-headline`), so the scene maps back to the Figma layer.
-- A state panel (several frames) renders the first state's layers, plus an overlay for every layer that differs in a later state (`p09-headline--s2`); the overlays fade in at the state's time. Mark an overlaying text layer `data-layout-allow-overlap` and fade the base text out as the overlay arrives, or `check` reports overlapping text.
-- Wrap parts that move together (phone and screen, a banner and its icon) in a group, with its own transform origin, and animate the group.
-- Static opacity is part of the design: keep a map of layers whose opacity is below 1, and tween to that value, not to 1.
-- Motion values come from the storyboard's motion spec (expo out for enters, expo in for exits, ease in-out for morphs, 80 ms stagger). A phone entering with a slight perspective tilt (`rotationY` with `transformPerspective`) and a cursor that taps a control are cheap ways to add depth.
-- A typewriter headline: split into character spans and reveal them in steps, with a gradient caret as an absolutely positioned pseudo-element so it never shifts the layout.
+1. **Read the frames.** Run `scripts/dump-frames.js` with `use_figma` (load `figma-use`), with `SECTION_ID` set to the `Frames · <piece>` Section. It returns, per panel, every layer (geometry, paint, text, accents, state overlays), the director note under each frame, and the image layers to export with the path each expects.
+2. **Export the images** it lists with `download_assets` at 3× into `assets/screens/`, under exactly those paths.
+3. **Write `scenes.json`** (format in `scenes-json.md`): the piece format and fonts, each panel's layers from step 1, the groups that move together (a phone and its screen), and the panel's moves taken from its `moves` line in `STORYBOARD.md`. Moves come from `motion-vocabulary.md`; a move with no generator support is `custom` with its own GSAP.
+4. **Generate:** `python3 -I <skill>/scripts/build-scenes.py <project> --only <panels>` writes `compositions/panel-NN.html`. It bakes every value from the frame geometry (no layout measuring), gives the first tween on each property the start state, adds `data-layout-allow-overlap` to state overlays, and keeps one paused timeline per scene.
+5. **Re-runs** only rewrite what the generator wrote. A composition edited by hand (in Studio or by Claude on request) is reported as `skipped (edited by hand)`: it is now that panel's edit home. Show what changed in Figma and ask whether to apply it with `--force NN` or keep the edited file.
+
+A scene is a complete video: it starts on its **handoff state** (the layers that are already in place at 0 s, matching the previous panel's last state) and ends on the handoff into the next. Layers that should appear later get an entering move; layers that are simply there at 0 s get none.
+
+Pitfalls the generator does not catch:
+
+- A layer whose start opacity is not its Figma opacity: give it a `fade` or an entering move, never edit the HTML.
+- `word-swap` needs both lines as states of one layer; if the swapped words differ a lot in width, the shared words visibly shift, so prefer `phrase-swap`.
+- A `push-in` target must be inside the frame; the camera scales the whole scene, background included.

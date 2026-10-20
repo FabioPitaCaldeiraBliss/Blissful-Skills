@@ -9,7 +9,7 @@ argument-hint: "[storyboard link] [frame size] [references / design system]"
 Needs the Figma MCP with edit access to the target file. If it is missing, stop and say so.
 
 1. Resolve the inputs: the storyboard (required) with its motion spec, key frames and each panel's **route**; the frame size from the piece format (ask only if missing; propose from the source, never default silently); the script or plan; optional references and design system.
-2. Read `references/craft.md` and `references/frames.md`. When any panel's route is `hyperframes`, also read `references/figma-structure.md` and `references/frame-md.md`.
+2. Read `references/craft.md`, `references/frames.md` and `references/treatments.md`. When any panel's route is `hyperframes`, also read `references/figma-structure.md` and `references/frame-md.md`.
 3. Read every panel: its key frames, notes and route. Compare with the script and list any conflict; ask, never resolve silently.
 4. **Stop and show the frame plan** (format in `frames.md`) together with the **design direction**: palette, type, treatments, from the design system or, if none, a proposal. Build nothing until the designer approves both; the designer may edit either.
 5. Build the approved plan (load `figma-use` first) in a Section named `Frames · <piece>`: one frame per state, panels in storyboard order, a director note under each frame.

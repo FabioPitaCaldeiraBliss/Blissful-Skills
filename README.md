@@ -40,10 +40,11 @@ Pass a screenshot, Figma link, URL, saved HTML file or code after the command, f
 
 A pipeline from a script to a rendered video. Each step is a skill; run them in order, and each one shows a plan for your approval before it builds anything.
 
-1. **[motion-storyboard](./skills/motion-storyboard/SKILL.md)**: Turns a script, plan or screens into a Figma storyboard: a motion spec (recurring element, structure, easing and timing, camera, music), a beat map when there is music, and 3–5 timed key frames per panel. Each panel gets a **route**: `hyperframes`, `figma motion` or `after effects` (a human animator).
-2. **[motion-frames](./skills/motion-frames/SKILL.md)**: Designs the final, layered frames from the storyboard (design direction first, then frames in a Figma Section) and exports what each route needs.
-3. **[motion-animate](./skills/motion-animate/SKILL.md)**: Animates each panel by its route: builds HyperFrames scenes, Figma motion timelines, or writes the handoff pack for After Effects.
-4. **[motion-assemble](./skills/motion-assemble/SKILL.md)**: Puts every panel and transition into one HyperFrames project, shows a stand-in for any clip still missing, validates delivered clips, then previews and renders the final cut.
+1. **[motion-storyboard](./skills/motion-storyboard/SKILL.md)**: Turns a script, plan or screens into a Figma storyboard. Give it reference videos, screen recordings or stills and it writes their **motion language** (pacing, density, signature moves); without references it starts from a public reference library. You get a motion spec, a beat map when there is music, and 3–5 timed key frames per panel, each naming its moves from a shared **motion vocabulary**. Each panel gets a **route**: `hyperframes`, `figma motion` or `after effects` (a human animator).
+2. **[motion-frames](./skills/motion-frames/SKILL.md)**: Designs the final, layered frames from the storyboard (design direction first, then frames in a Figma Section, starting from shot templates proven in product launch films) and exports what each route needs.
+3. **[motion-animate](./skills/motion-animate/SKILL.md)**: Animates each panel by its route: generates HyperFrames scenes from your Figma frames, builds Figma motion timelines, or writes the handoff pack for After Effects. Scenes you edit by hand are never overwritten.
+4. **[motion-assemble](./skills/motion-assemble/SKILL.md)**: Renders the whole piece or just the scenes you pick (each scene is a full video), with stand-ins for clips still missing, validated deliveries, and exports for review, for an editor (ProRes, with handles) or with transparency.
+5. **[motion-audit](./skills/motion-audit/SKILL.md)**: Checks a plan before building, or a render after: purpose, timing and density, easing, choreography, flashing, reduced motion, build and video quality.
 
 You need the Figma connector with edit access to your file. For steps 3 and 4, also install the HyperFrames skills once:
 
@@ -51,7 +52,7 @@ You need the Figma connector with edit access to your file. For steps 3 and 4, a
 npx skills add heygen-com/hyperframes -g -a claude-code -s '*' -y
 ```
 
-Claude can't watch a reference video: describe the motion you want, or share stills. Logos, photos and people always come from you; missing ones stay as labelled boxes.
+For a reference video, share a file or a screen recording you're allowed to use; Claude samples it. It won't download someone else's video from a link, so for those describe the motion or share stills. Logos, photos and people always come from you; missing ones stay as labelled boxes.
 
 ### What the audits can't check
 

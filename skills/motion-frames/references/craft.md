@@ -50,7 +50,7 @@ A produced frame carries roughly 6–10 roles; a lower third or a logo sting nee
 
 ## Treatments
 
-Define the piece's reusable frame types once (for example Hero Stack, Hero Stat, Grid, Pull Quote, Cards, Closing) and give each panel one. A treatment fixes layer roles, focal element and negative space; it does not fix layout details.
+Define the piece's reusable frame types once and give each panel one. A treatment fixes layer roles, focal element and negative space; it does not fix layout details. Start from the presets and shot templates in `treatments.md`, matched to the panel's role and shot in the storyboard.
 
 ## Defaults to question
 

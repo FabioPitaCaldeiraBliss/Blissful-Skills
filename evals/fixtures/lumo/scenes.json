@@ -1,0 +1,731 @@
+{
+ "format": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 30
+ },
+ "background": "#0e1022",
+ "font": "Helvetica",
+ "accent": "#18c8b0",
+ "caret": [
+  "#7c5cff",
+  "#18c8b0"
+ ],
+ "fonts": [],
+ "panels": [
+  {
+   "id": "01",
+   "name": "Opener",
+   "duration": 8,
+   "transition_in": "cut",
+   "layers": [
+    {
+     "name": "01 Opener / bg glow",
+     "type": "ellipse",
+     "x": 560,
+     "y": 40,
+     "w": 800,
+     "h": 800,
+     "fill": "#7c5cff",
+     "opacity": 0.22,
+     "blur": 300
+    },
+    {
+     "name": "01 Opener / ring",
+     "type": "ellipse",
+     "x": 860,
+     "y": 180,
+     "w": 200,
+     "h": 200,
+     "stroke": {
+      "color": "#7c5cff",
+      "width": 4
+     }
+    },
+    {
+     "name": "01 Opener / disc",
+     "type": "ellipse",
+     "x": 860,
+     "y": 180,
+     "w": 200,
+     "h": 200,
+     "fill": "#7c5cff"
+    },
+    {
+     "name": "01 Opener / tile",
+     "type": "rect",
+     "x": 870,
+     "y": 190,
+     "w": 180,
+     "h": 180,
+     "radius": 44,
+     "fill": "#7c5cff"
+    },
+    {
+     "name": "01 Opener / logo letter",
+     "type": "text",
+     "text": "l",
+     "x": 870,
+     "y": 205,
+     "w": 180,
+     "size": 130,
+     "weight": "bold",
+     "color": "#ffffff",
+     "align": "center",
+     "lineHeight": 1
+    },
+    {
+     "name": "01 Opener / line 1",
+     "type": "text",
+     "text": "Money that moves with you",
+     "x": 192,
+     "y": 560,
+     "w": 1536,
+     "size": 96,
+     "weight": "bold",
+     "color": "#f2f3ff",
+     "align": "center",
+     "tracking": -0.03,
+     "accents": [
+      [
+       11,
+       16,
+       "#18c8b0"
+      ]
+     ]
+    },
+    {
+     "name": "01 Opener / line 2",
+     "type": "text",
+     "text": "Meet Lumo.",
+     "x": 192,
+     "y": 560,
+     "w": 1536,
+     "size": 96,
+     "weight": "bold",
+     "color": "#f2f3ff",
+     "align": "center",
+     "tracking": -0.03,
+     "allow_overlap": true
+    }
+   ],
+   "moves": [
+    {
+     "move": "glow-drift",
+     "target": "01 Opener / bg glow",
+     "at": 0
+    },
+    {
+     "move": "stroke-draw",
+     "target": "01 Opener / ring",
+     "at": 0.2
+    },
+    {
+     "move": "phrase-in",
+     "target": "01 Opener / line 1",
+     "at": 1.0
+    },
+    {
+     "move": "shape-morph",
+     "chain": [
+      "01 Opener / ring",
+      "01 Opener / disc",
+      "01 Opener / tile"
+     ],
+     "at": 1.5
+    },
+    {
+     "move": "keyword-accent",
+     "target": "01 Opener / line 1",
+     "at": 2.0
+    },
+    {
+     "move": "enter",
+     "target": "01 Opener / logo letter",
+     "at": 3.6,
+     "y": 20
+    },
+    {
+     "move": "phrase-swap",
+     "target": "01 Opener / line 1",
+     "to": "01 Opener / line 2",
+     "at": 4.6
+    },
+    {
+     "move": "breathe",
+     "target": "01 Opener / tile",
+     "at": 5.6
+    }
+   ]
+  },
+  {
+   "id": "02",
+   "name": "Device",
+   "duration": 10,
+   "transition_in": "cut",
+   "layers": [
+    {
+     "name": "02 Device / title",
+     "type": "text",
+     "text": "Your wallet, live.",
+     "x": 192,
+     "y": 70,
+     "w": 1536,
+     "size": 96,
+     "weight": "bold",
+     "color": "#f2f3ff",
+     "align": "center",
+     "tracking": -0.04,
+     "allow_overlap": true
+    },
+    {
+     "name": "02 Device / phone",
+     "type": "rect",
+     "x": 773,
+     "y": 230,
+     "w": 374,
+     "h": 790,
+     "radius": 60,
+     "fill": "#05060f",
+     "stroke": {
+      "color": "#2a2e4a",
+      "width": 4
+     }
+    },
+    {
+     "name": "02 Device / screen",
+     "type": "rect",
+     "x": 785,
+     "y": 242,
+     "w": 350,
+     "h": 766,
+     "radius": 50,
+     "clip": true,
+     "children": [
+      {
+       "name": "02 Device / home",
+       "type": "image",
+       "src": "assets/screens/home.png",
+       "x": 0,
+       "y": 0,
+       "w": 350,
+       "h": 1436
+      }
+     ]
+    },
+    {
+     "name": "02 Device / balance card",
+     "type": "rect",
+     "x": 805,
+     "y": 330,
+     "w": 310,
+     "h": 150,
+     "radius": 28,
+     "fill": "#1b1f3a"
+    },
+    {
+     "name": "02 Device / balance",
+     "type": "text",
+     "text": "€0",
+     "x": 829,
+     "y": 368,
+     "w": 300,
+     "size": 60,
+     "weight": "bold",
+     "color": "#f2f3ff",
+     "tabular": true
+    },
+    {
+     "name": "02 Device / pay button",
+     "type": "rect",
+     "x": 815,
+     "y": 910,
+     "w": 290,
+     "h": 76,
+     "radius": 40,
+     "fill": "#18c8b0"
+    },
+    {
+     "name": "02 Device / pay label",
+     "type": "text",
+     "text": "Pay",
+     "x": 815,
+     "y": 926,
+     "w": 290,
+     "size": 36,
+     "weight": "medium",
+     "color": "#0e1022",
+     "align": "center"
+    },
+    {
+     "name": "02 Device / notification",
+     "type": "rect",
+     "x": 660,
+     "y": 40,
+     "w": 600,
+     "h": 110,
+     "radius": 28,
+     "fill": "#ffffff",
+     "shadow": {
+      "x": 0,
+      "y": 18,
+      "blur": 40,
+      "color": "rgba(0,0,0,.35)"
+     }
+    },
+    {
+     "name": "02 Device / notification text",
+     "type": "text",
+     "text": "Lumo · Payment sent",
+     "x": 700,
+     "y": 74,
+     "w": 520,
+     "size": 34,
+     "weight": "medium",
+     "color": "#0e1022"
+    },
+    {
+     "name": "02 Device / sat 1",
+     "type": "rect",
+     "x": 300,
+     "y": 420,
+     "w": 320,
+     "h": 180,
+     "radius": 28,
+     "fill": "#1b1f3a",
+     "stroke": {
+      "color": "#7c5cff",
+      "width": 2
+     }
+    },
+    {
+     "name": "02 Device / sat 2",
+     "type": "rect",
+     "x": 1300,
+     "y": 560,
+     "w": 320,
+     "h": 180,
+     "radius": 28,
+     "fill": "#1b1f3a",
+     "stroke": {
+      "color": "#18c8b0",
+      "width": 2
+     }
+    }
+   ],
+   "groups": {
+    "device": {
+     "members": [
+      "02 Device / phone",
+      "02 Device / screen",
+      "02 Device / balance card",
+      "02 Device / balance",
+      "02 Device / pay button",
+      "02 Device / pay label"
+     ]
+    },
+    "notif": {
+     "members": [
+      "02 Device / notification",
+      "02 Device / notification text"
+     ]
+    }
+   },
+   "moves": [
+    {
+     "move": "title-over-device",
+     "target": "02 Device / title",
+     "at": 0.2
+    },
+    {
+     "move": "device-tilt-in",
+     "target": "device",
+     "at": 0.4
+    },
+    {
+     "move": "count-up",
+     "target": "02 Device / balance",
+     "at": 1.6,
+     "to": 2480,
+     "prefix": "€",
+     "separator": ","
+    },
+    {
+     "move": "push-in",
+     "target": "02 Device / balance card",
+     "at": 3.0,
+     "fill": 0.6
+    },
+    {
+     "move": "pull-out",
+     "at": 4.4
+    },
+    {
+     "move": "screen-scroll",
+     "target": "02 Device / home",
+     "at": 4.8,
+     "by": -500
+    },
+    {
+     "move": "exit",
+     "target": "02 Device / title",
+     "at": 6.2
+    },
+    {
+     "move": "tap",
+     "target": "02 Device / pay button",
+     "at": 6.2
+    },
+    {
+     "move": "notification-drop",
+     "target": "notif",
+     "at": 6.8,
+     "out": 9.2
+    },
+    {
+     "move": "satellite-cards",
+     "target": [
+      "02 Device / sat 1",
+      "02 Device / sat 2"
+     ],
+     "from": "device",
+     "at": 7.4,
+     "back": 9.0
+    }
+   ]
+  },
+  {
+   "id": "03",
+   "name": "Chat and close",
+   "duration": 9,
+   "transition_in": "cut",
+   "layers": [
+    {
+     "name": "03 Close / tile 1",
+     "type": "image",
+     "src": "assets/photos/p1.png",
+     "x": 192,
+     "y": 110,
+     "w": 480,
+     "h": 280,
+     "radius": 24,
+     "opacity": 0.3
+    },
+    {
+     "name": "03 Close / tile 2",
+     "type": "image",
+     "src": "assets/photos/p2.png",
+     "x": 720,
+     "y": 110,
+     "w": 480,
+     "h": 280,
+     "radius": 24,
+     "opacity": 0.3
+    },
+    {
+     "name": "03 Close / tile 3",
+     "type": "image",
+     "src": "assets/photos/p3.png",
+     "x": 1248,
+     "y": 110,
+     "w": 480,
+     "h": 280,
+     "radius": 24,
+     "opacity": 0.3
+    },
+    {
+     "name": "03 Close / tile 4",
+     "type": "image",
+     "src": "assets/photos/p4.png",
+     "x": 192,
+     "y": 600,
+     "w": 480,
+     "h": 280,
+     "radius": 24,
+     "opacity": 0.3
+    },
+    {
+     "name": "03 Close / tile 5",
+     "type": "image",
+     "src": "assets/photos/p5.png",
+     "x": 720,
+     "y": 600,
+     "w": 480,
+     "h": 280,
+     "radius": 24,
+     "opacity": 0.3
+    },
+    {
+     "name": "03 Close / tile 6",
+     "type": "image",
+     "src": "assets/photos/p6.png",
+     "x": 1248,
+     "y": 600,
+     "w": 480,
+     "h": 280,
+     "radius": 24,
+     "opacity": 0.3
+    },
+    {
+     "name": "03 Close / avatar",
+     "type": "ellipse",
+     "x": 900,
+     "y": 110,
+     "w": 120,
+     "h": 120,
+     "fill": "#7c5cff"
+    },
+    {
+     "name": "03 Close / avatar ring",
+     "type": "ellipse",
+     "x": 900,
+     "y": 110,
+     "w": 120,
+     "h": 120,
+     "stroke": {
+      "color": "#7c5cff",
+      "width": 3
+     }
+    },
+    {
+     "name": "03 Close / b1 box",
+     "type": "rect",
+     "x": 560,
+     "y": 300,
+     "w": 520,
+     "h": 84,
+     "radius": 32,
+     "fill": "#1b1f3a"
+    },
+    {
+     "name": "03 Close / b1 text",
+     "type": "text",
+     "text": "Send €20 to Rui?",
+     "x": 592,
+     "y": 322,
+     "w": 460,
+     "size": 32,
+     "color": "#f2f3ff"
+    },
+    {
+     "name": "03 Close / b2 box",
+     "type": "rect",
+     "x": 840,
+     "y": 404,
+     "w": 520,
+     "h": 84,
+     "radius": 32,
+     "fill": "#7c5cff"
+    },
+    {
+     "name": "03 Close / b2 text",
+     "type": "text",
+     "text": "Yes, send it",
+     "x": 872,
+     "y": 426,
+     "w": 460,
+     "size": 32,
+     "color": "#ffffff"
+    },
+    {
+     "name": "03 Close / b3 box",
+     "type": "rect",
+     "x": 560,
+     "y": 508,
+     "w": 520,
+     "h": 84,
+     "radius": 32,
+     "fill": "#1b1f3a"
+    },
+    {
+     "name": "03 Close / b3 text",
+     "type": "text",
+     "text": "On it.",
+     "x": 592,
+     "y": 530,
+     "w": 460,
+     "size": 32,
+     "color": "#f2f3ff"
+    },
+    {
+     "name": "03 Close / status",
+     "type": "text",
+     "text": "Sending…",
+     "x": 192,
+     "y": 640,
+     "w": 1536,
+     "size": 40,
+     "color": "#9aa0c8",
+     "align": "center"
+    },
+    {
+     "name": "03 Close / status",
+     "state": 2,
+     "type": "text",
+     "text": "Sent",
+     "x": 192,
+     "y": 640,
+     "w": 1536,
+     "size": 40,
+     "color": "#18c8b0",
+     "align": "center",
+     "weight": "medium"
+    },
+    {
+     "name": "03 Close / check",
+     "type": "ellipse",
+     "x": 920,
+     "y": 730,
+     "w": 80,
+     "h": 80,
+     "fill": "#18c8b0"
+    },
+    {
+     "name": "03 Close / line",
+     "type": "text",
+     "text": "A new kind of wallet.",
+     "x": 192,
+     "y": 470,
+     "w": 1536,
+     "size": 104,
+     "weight": "bold",
+     "color": "#f2f3ff",
+     "align": "center",
+     "tracking": -0.03,
+     "allow_overlap": true
+    },
+    {
+     "name": "03 Close / line",
+     "type": "text",
+     "text": "Your kind of wallet.",
+     "x": 192,
+     "y": 470,
+     "w": 1536,
+     "size": 104,
+     "weight": "bold",
+     "color": "#f2f3ff",
+     "align": "center",
+     "tracking": -0.03,
+     "allow_overlap": true,
+     "state": 2
+    },
+    {
+     "name": "03 Close / wordmark",
+     "type": "text",
+     "text": "lumo",
+     "x": 192,
+     "y": 900,
+     "w": 1536,
+     "size": 60,
+     "weight": "bold",
+     "color": "#7c5cff",
+     "align": "center",
+     "allow_overlap": true
+    }
+   ],
+   "groups": {
+    "b1": {
+     "members": [
+      "03 Close / b1 box",
+      "03 Close / b1 text"
+     ]
+    },
+    "b2": {
+     "members": [
+      "03 Close / b2 box",
+      "03 Close / b2 text"
+     ]
+    },
+    "b3": {
+     "members": [
+      "03 Close / b3 box",
+      "03 Close / b3 text"
+     ]
+    }
+   },
+   "moves": [
+    {
+     "move": "enter",
+     "target": "03 Close / avatar",
+     "at": 0,
+     "y": 0
+    },
+    {
+     "move": "ring-pulse",
+     "target": "03 Close / avatar ring",
+     "at": 0.3
+    },
+    {
+     "move": "chat-stack",
+     "target": [
+      "b1",
+      "b2",
+      "b3"
+     ],
+     "at": 0.6
+    },
+    {
+     "move": "fade",
+     "target": "03 Close / status",
+     "at": 2.9,
+     "d": 0.3
+    },
+    {
+     "move": "state-change",
+     "target": "03 Close / status",
+     "to": "03 Close / status@2",
+     "at": 3.6
+    },
+    {
+     "move": "success-burst",
+     "target": "03 Close / check",
+     "at": 3.7
+    },
+    {
+     "move": "exit",
+     "target": [
+      "b1",
+      "b2",
+      "b3",
+      "03 Close / avatar",
+      "03 Close / status@2",
+      "03 Close / check"
+     ],
+     "at": 4.6
+    },
+    {
+     "move": "photo-mosaic",
+     "target": [
+      "03 Close / tile 1",
+      "03 Close / tile 2",
+      "03 Close / tile 3",
+      "03 Close / tile 4",
+      "03 Close / tile 5",
+      "03 Close / tile 6"
+     ],
+     "at": 5.0
+    },
+    {
+     "move": "phrase-in",
+     "target": "03 Close / line",
+     "at": 5.2
+    },
+    {
+     "move": "word-swap",
+     "target": "03 Close / line",
+     "to": "03 Close / line@2",
+     "at": 6.6
+    },
+    {
+     "move": "logo-resolve",
+     "target": "03 Close / wordmark",
+     "at": 7.3
+    },
+    {
+     "move": "dissolve",
+     "at": 8.4
+    }
+   ]
+  }
+ ]
+}

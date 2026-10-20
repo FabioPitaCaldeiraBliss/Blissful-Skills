@@ -12,16 +12,16 @@ Show it before building, grouped by route:
 | `04 Onboarding` | figma motion | 8 s | headline slides in (0–0.6 s), phone slides up (0.2–0.9 s) |
 | `03 The turn` | after effects | 4 s | handoff pack; clip `03-the-turn.mp4` expected back |
 
-For `hyperframes` and `figma motion` panels, list each layer's motion with start, end and easing. For `after effects` panels, list the handoff pack contents and the delivery format.
+For `hyperframes` panels, list each move by its vocabulary name (`motion-vocabulary.md`) with its start and target; for `figma motion` panels, each layer's motion with start, end and easing. For `after effects` panels, list the handoff pack contents and the delivery format.
 
-Under the table list: the defaults used, meaning gaps as questions, layers that already have motion (ask keep or replace), what cannot be animated and why, and the BPM question if none was given. Wait for approval.
+Under the table list: the **render scope** (which panels this run builds; the designer chooses), the planned density per panel against the motion spec's target (moves per second, longest gap between moves), the defaults used, meaning gaps as questions, layers that already have motion (ask keep or replace), what cannot be animated and why, and the BPM question if none was given. Wait for approval.
 
 ## Defaults
 
 Apply only where the storyboard notes are silent, and list them back:
 
-- Enters: ease-out, about 0.4 s. Exits: ease-in, 50–100 ms shorter than the enter.
-- Stagger related elements about 0.08 s apart; one idea at a time.
+- Durations and eases come from the move's default in `motion-vocabulary.md`, then the motion spec.
+- Where a panel falls short of the density target, propose moves to fill the gap (an ambient move under a hold, a supporting move on a secondary element); never stretch a hold.
 - Animate transform and opacity; avoid width, height, top and left.
 - Keep functional motion within 150–500 ms; longer only for rare expressive moments.
 - Never flash more than 3 times a second, and avoid large-area flashes.
@@ -34,7 +34,7 @@ Anything that changes meaning (order, a trigger, the length of a key moment) is 
 - A layer that is a `MISSING:` box can be animated for timing, but its real motion (an old app cracking, a logo disintegrating) waits for the asset.
 - Image layers move as whole images; nothing inside a screenshot can be animated separately.
 - No audio in Figma. Snap motion starts to the beat only when the designer gives a BPM (beat = 60 / BPM seconds); otherwise say timing follows the storyboard only.
-- Transitions between panels are built in the assembly, not per panel. Panel animations carry no in or out of their own.
+- A `hyperframes` scene carries its own in and out through its handoff states, so it renders alone. Wipes, cuts and the joins with clips from other routes are built in the assembly.
 
 ## Verify, by route
 

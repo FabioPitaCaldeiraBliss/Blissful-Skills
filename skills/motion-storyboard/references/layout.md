@@ -5,7 +5,7 @@ One Figma page per storyboard, read top to bottom.
 ## Order
 
 1. **Header**: a pill `Motion storyboard v<N> · key frames, not animated`, the piece title, the concept line, and `Format: 1920×1080 · 30 fps · limit 1:30`.
-2. **Motion spec**: the six cards in one row (see `motion-spec.md`), each a title and one or two sentences.
+2. **Motion spec**: the seven cards in one row (see `motion-spec.md`), each a title and one or two sentences.
 3. **Legend**: the tag chips (`EASE`, `CAM`, `TRANS`, `SFX`, `TXT`) and the annotation glyphs (tap, trajectory, next framing), each with its meaning.
 4. **Beat map**, only with a BPM: a strip of the piece's length with a tick per beat (taller on each bar), one band per panel, and markers for the hits.
 5. **Panel rows**, one per panel, in order.

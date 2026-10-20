@@ -1,7 +1,7 @@
 {
   "name": "blissful-skills",
-  "version": "0.4.0",
-  "description": "Blissful design skills: UX audits (usability heuristics, Laws of UX, WCAG) and a motion pipeline from script to rendered video (storyboard, frames, animation, assembly).",
+  "version": "0.5.0",
+  "description": "Blissful design skills: UX audits (usability heuristics, Laws of UX, WCAG) and a motion pipeline from script to rendered video (storyboard, frames, animation, assembly, motion audit).",
   "author": {
     "name": "Fabio Pita Caldeira",
     "url": "https://github.com/FabioPitaCaldeiraBliss"
@@ -30,6 +30,7 @@
     "./skills/motion-storyboard",
     "./skills/motion-frames",
     "./skills/motion-animate",
-    "./skills/motion-assemble"
+    "./skills/motion-assemble",
+    "./skills/motion-audit"
   ]
 }

@@ -6,9 +6,9 @@ A **frame** is the finished static visual of a panel, built like a layered Illus
 
 Show it before building, with the design direction (palette, type, treatments):
 
-| Panel | Route | Treatment | Frames (states) | Layers by role | Exports | Needs from you |
+| Panel | Route | Treatment and shot | Frames (states) | Layers by role | Exports | Needs from you |
 |---|---|---|---|---|---|---|
-| `01 Hook` | hyperframes | Hero Stat | 1 | bg: ring, glow · mid: counter, label, headline | frame.md | — |
+| `01 Hook` | hyperframes | Hero Stat · `dataviz-countup` (adapt) | 1 | bg: ring, glow · mid: counter, label, headline | frame.md | — |
 
 Under the table list: conflicts between storyboard and script (as questions), the size to confirm, and anything missing. Wait for approval.
 
@@ -17,6 +17,8 @@ Under the table list: conflicts between storyboard and script (as questions), th
 - The storyboard's key frames are the source. One frame per distinct composition, not per moment.
 - Things that only move, scale or fade share one frame; layers sit at their start positions.
 - Add a state frame only where layout or content changes: light vs dark, a new screen replacing the old, one logo becoming another.
+- A `hyperframes` panel's first and last frames are its handoff states when the storyboard joins it to its neighbours by a morph (`treatments.md`).
+- Every layer a move in the storyboard names exists as its own layer, with the name the move uses.
 - A counter or bar needs no start frame: the frame holds the end value, and the storyboard gives the start.
 - The designer can override any count in the plan.
 
@@ -42,7 +44,7 @@ Under the table list: conflicts between storyboard and script (as questions), th
 
 - Design system given (library, file variables or brand guide): search it, use its components, bind colour, type and spacing to its tokens instead of hardcoding, and say when variables are not published so values were copied.
 - None given: propose a palette and type from the source and the craft rules, get it approved with the plan, and record it in `frame.md`.
-- References (images, Figma frames, links): note per reference what was taken (colour, type, composition, pacing) and what was ignored. A reference video cannot be watched; use only the designer's written description.
+- References (images, Figma frames, links): note per reference what was taken (colour, type, composition, pacing) and what was ignored. The storyboard's **Motion language** card already holds what reference videos were analysed into; read it rather than re-analysing, and never download someone else's video.
 
 ## Exports by route
 
